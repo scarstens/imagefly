@@ -13,11 +13,8 @@ router.get('/:account/:options/:location', (req, res, next) => {
     res.type('image/jpg');
     console.log('Begin Transmute...');
     // transmute(req.appDir+'/adorable-animal-canine-1097209.jpg').pipe(res);
-    request.get(url).on('error', function(err) {
-        console.log(err)
-      }).pipe(res);
+    transmute(url).pipe(res);
     console.log('Transmute finished.')
-    // transmute(url).pipe(res);
 });
 // TODO: request('http://fromrussiawithlove.com/baby.mp3').pipe(fs.createWriteStream('song.mp3'))
 
