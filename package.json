@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "pm2": "pm2 start server.js --watch && pm2 monit",
+    "stop": "pm2 stop all"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,9 @@
   "dependencies": {
     "express": "^4.16.3",
     "morgan": "^1.9.0",
+    "pm2": "^2.10.4",
     "request": "^2.87.0",
+    "request-promise": "^4.2.2",
     "sharp": "^0.20.4"
   },
   "devDependencies": {
