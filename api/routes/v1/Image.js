@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const transmute = require('../../app/Transmute');
 const querystring = require('querystring');
 const url = require('url');
 const path = require('path');
+const transmute = require('../../../app/Transmute');
+const RemoteRequest = require('../../../app/RemoteRequest');
 
-router.get('/:config_set/:options/:location(*)', (req, res, next) => {
+router.get('/:config_set/:options/:location(*)', async (req, res, next) => {
+    console.log('Start image route.')
     // Parse the options like a querytring seperated by commas
     const options = querystring.parse( req.params.options, ',' );
 
@@ -17,24 +19,35 @@ router.get('/:config_set/:options/:location(*)', (req, res, next) => {
     path_data = path.parse(image_path);
     extension_type = path_data.ext;
     options.format = options.format || extension_type.slice(1);
+
     // Pass file object for content disposition changes
     options.file_data = path_data;
 
-    console.log('Begin Transmute...');
     location = req.params.location;
     query_string = querystring.stringify(req.query);
+
     if(query_string){
         location += '?' +querystring.stringify(req.query);
     }
-    let transmutation = transmute(req, res, next, location, options);
-    // Todo: create promise so status is valid
-    console.log('status: ' + transmutation.remote_status_code);
+
+    let remoteRequest = new RemoteRequest();
     try {
-        transmutation.imageReadStream.pipe(res);
+        let imageStream = await remoteRequest.getImageStream(location);
+        console.log(typeof(imageStream));
+        console.log(remoteRequest.statusCode);
+        if(imageStream){
+            // console.log(imageStream);
+            imageStream.pipe(res);
+        } else {
+            console.error('Image stream failed.');
+        }
+        
     } catch (err) {
         console.log(err);
+        exit;
     }
-    console.log('Transmute finished.')
+    console.log('End of image route.')
+    return res;
 });
 
 module.exports = router;
