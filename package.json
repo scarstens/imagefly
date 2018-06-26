@@ -18,7 +18,7 @@
     "crop",
     "manipulation"
   ],
-  "author": "Seth Carstens",
+  "author": "Seth Carstens <seth.carstens@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/scarstens/imagefly/issues"
