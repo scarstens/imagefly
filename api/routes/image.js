@@ -27,8 +27,13 @@ router.get('/:config_set/:options/:location(*)', (req, res, next) => {
         location += '?' +querystring.stringify(req.query);
     }
     let transmutation = transmute(req, res, next, location, options);
+    // Todo: create promise so status is valid
     console.log('status: ' + transmutation.remote_status_code);
-    transmutation.imageReadStream.pipe(res);
+    try {
+        transmutation.imageReadStream.pipe(res);
+    } catch (err) {
+        console.log(err);
+    }
     console.log('Transmute finished.')
 });
 
