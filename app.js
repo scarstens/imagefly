@@ -12,6 +12,7 @@ global.app = {
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 const imageRoutes = require('./api/routes/image');
+const v1ImageRoutes = require('./api/routes/v1/Image');
 
 // Add error handling middlewear
 app.use(morgan('dev'));
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
 app.use('/image', imageRoutes);
+app.use('/v1/image', v1ImageRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found.');
