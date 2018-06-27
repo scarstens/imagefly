@@ -10,9 +10,13 @@ export PORT=3300; npm build && npm start
 ```
 
 ## Examples
-~⚠️Assumes default port of 3300⚠️~
+
+⚠️ Assumes default port of 3300 ⚠️
+
 Resize based on width, set auto-webp (auto detect based on browser), and quality down to 80.
 http://localhost:3300/image/default_config/width=300,auto_webp=true,quality=100/https://upload.wikimedia.org/wikipedia/commons/1/16/Mimus_polyglottos1.jpg
+
+![Screenshot 1](https://raw.githubusercontent.com/wiki/scarstens/imagefly/images/imagefly-screenshot-compression-resize.png)
 
 ## Options
 
