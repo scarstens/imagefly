@@ -14,7 +14,7 @@ export PORT=3300; npm build && npm start
 ⚠️ Assumes default port of 3300 ⚠️
 
 Resize based on width, set auto-webp (auto detect based on browser), and quality down to 80.
-http://localhost:3300/image/default_config/width=300,auto_webp=true,quality=100/https://upload.wikimedia.org/wikipedia/commons/1/16/Mimus_polyglottos1.jpg
+http://localhost:3300/v1/image/default_config/width=300,auto_webp=true,quality=100/https://upload.wikimedia.org/wikipedia/commons/1/16/Mimus_polyglottos1.jpg
 
 ![Screenshot 1](https://raw.githubusercontent.com/wiki/scarstens/imagefly/images/imagefly-screenshot-compression-resize.png)
 
@@ -38,7 +38,7 @@ http://localhost:3300/image/default_config/width=300,auto_webp=true,quality=100/
 ##Issues
 
 Not Working:
-http://localhost:3300/image/scarstens/width=300/https://upload.wikimedia.org/wikipedia/commons/0/0c/Scarlett_Johansson_C%C3%A9sars_2014.jpg
+http://localhost:3300/v1/image/scarstens/width=300/https://upload.wikimedia.org/wikipedia/commons/0/0c/Scarlett_Johansson_C%C3%A9sars_2014.jpg
 
 ## Features needed
 
