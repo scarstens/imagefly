@@ -58,3 +58,4 @@ http://localhost:3300/v1/image/scarstens/width=300/https://upload.wikimedia.org/
 - validate formats allowed
 - enable config_sets to be configured
 - watermark (compositing images)
+- Proper error handling instead of failing everything to 404
