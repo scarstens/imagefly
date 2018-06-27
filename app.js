@@ -1,7 +1,7 @@
 // Require libraries
+const morgan = require('morgan');
 const express = require('express');
 const app = express();
-const morgan = require('morgan');
 
 global.app = {
     rootDir: __dirname,
@@ -9,10 +9,7 @@ global.app = {
 }
 
 // Require routes
-const productRoutes = require('./api/routes/products');
-const orderRoutes = require('./api/routes/orders');
-const imageRoutes = require('./api/routes/image');
-const v1ImageRoutes = require('./api/routes/v1/Image');
+const imageRoutes = require('./api/routes/v1/Image');
 
 // Add error handling middlewear
 app.use(morgan('dev'));
@@ -37,10 +34,7 @@ app.use((req, res, next) => {
 });
 
 // Routes which should handle requests
-app.use('/products', productRoutes);
-app.use('/orders', orderRoutes);
-app.use('/image', imageRoutes);
-app.use('/v1/image', v1ImageRoutes);
+app.use('/v1/image', imageRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found.');

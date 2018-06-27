@@ -32,7 +32,8 @@
     "pm2": "^2.10.4",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
-    "sharp": "^0.20.4"
+    "sharp": "^0.20.4",
+    "streamifier": "^0.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"
